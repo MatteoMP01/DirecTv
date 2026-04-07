@@ -149,7 +149,7 @@ body.ch #cur .dot{opacity:0;}
 }
 .d-thumb{
   aspect-ratio:2/3;border-radius:4px;overflow:hidden;
-  background:linear-gradient(135deg,var(--c1) 0%,var(--c2) 100%);
+  background:linear-gradient(135deg,var(--c1) 0%,var(--c2)100%);
   border:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:center;
   font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(6px,1vw,11px);
@@ -1027,7 +1027,7 @@ document.getElementById('sf').addEventListener('submit',async function(e){
     calidad:tc.value==='no'?'frio':tc.value==='familiar'?'medio':'caliente',
     timestamp:new Date().toISOString(),source:'Landing DirecTV v4 — Connection Center'
   };
-  const SHEET_URL='TU_GOOGLE_APPS_SCRIPT_URL_AQUI';
+  const SHEET_URL='https://script.google.com/macros/s/AKfycbxPKcixYCPRb2HuKATYjvM2b7x43-AQLRw8XMMqBkrgKeVY4Jg5x8cY0Kj8Vd7DhlRMKg/exec';
   try{
     if(SHEET_URL!=='TU_GOOGLE_APPS_SCRIPT_URL_AQUI'){
       await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
@@ -1035,7 +1035,7 @@ document.getElementById('sf').addEventListener('submit',async function(e){
     si2.classList.remove('active');si2.classList.add('done');si3.classList.add('active');
     document.getElementById('fc').style.display='none';
     document.getElementById('succ').style.display='block';
-  }catch(err){
+  } catch(err){
     btn.textContent='Enviar solicitud de cobertura →';btn.disabled=false;
     alert('Hubo un problema. Por favor, intentá de nuevo.');
   }
