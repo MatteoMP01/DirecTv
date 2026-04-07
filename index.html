@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DirecTV Argentina | Activaciones Oficiales Abril-Mayo</title>
-<meta name="description" content="Activá DirecTV hoy. Abril y Mayo bonificados, instalación sin cargo. Planes Oro HD y Super Lite con Disney+ y Prime Video incluidos.">
+<title>DirecTV Argentina | Abril y Mayo Gratis + 70% OFF</title>
+<meta name="description" content="Activá DirecTV hoy. Abril y Mayo gratis, instalación sin cargo, plataformas incluidas. Primera factura en Junio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#050505;--bg1:#090909;--bg2:#0e0e0e;
@@ -18,7 +18,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px;}
 
 /* CURSOR */
 #cur{position:fixed;pointer-events:none;z-index:9999;top:0;left:0;}
@@ -27,57 +27,384 @@ body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;-web
 body.ch #cur .ring{transform:scale(2.3);border-color:var(--blue);}
 body.ch #cur .dot{opacity:0;}
 
-/* HERO */
+/* ═══════════════ HERO ═══════════════ */
 #hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;}
-.hbg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 100% 80% at 50% 110%, rgba(0,119,200,.18) 0%, transparent 60%),linear-gradient(170deg,#020408 0%,#060f1e 55%,#020408 100%);}
 
-/* TV ROOM */
-.tv-room{position:absolute;top:60px;left:50%;transform:translateX(-50%);width:min(65%, 720px);z-index:3;}
-.tv-body{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;border:2px solid #1a1a1a;box-shadow:0 0 120px rgba(0,119,200,0.1);overflow:hidden;}
+.hbg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 110%, rgba(0,119,200,.25) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 5%, rgba(0,60,160,.12) 0%, transparent 55%),
+    linear-gradient(170deg,#020408 0%,#060f1e 55%,#020408 100%);
+}
+/* ambient grain */
+.hbg::after{content:'';position:absolute;inset:0;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
+
+/* SMART TV */
+.tv-room{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-54%);
+  width:min(62%, 680px);
+  z-index:3;
+}
+/* TV body */
+.tv-body{
+  position:relative;width:100%;aspect-ratio:16/9;
+  background:#0a0a0a;
+  border-radius:10px;
+  border:2px solid #1a1a1a;
+  box-shadow:
+    0 0 0 1px #0f0f0f,
+    0 30px 80px rgba(0,0,0,.8),
+    0 0 120px rgba(0,119,200,.15),
+    inset 0 0 30px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+/* bezel shine */
+.tv-body::before{
+  content:'';position:absolute;inset:0;z-index:10;
+  background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 50%);
+  pointer-events:none;border-radius:8px;
+}
+/* scanlines */
+.tv-body::after{
+  content:'';position:absolute;inset:0;z-index:9;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.08) 3px,rgba(0,0,0,.08) 4px);
+  pointer-events:none;
+}
+/* TV stand */
+.tv-stand{
+  width:18%;margin:0 auto;height:0;
+  border-left:3px solid transparent;border-right:3px solid transparent;
+  border-top:22px solid #141414;
+  position:relative;
+}
+.tv-stand::after{
+  content:'';position:absolute;top:22px;left:50%;transform:translateX(-50%);
+  width:200%;height:6px;background:#111;border-radius:0 0 4px 4px;
+}
+/* TV glow on floor */
+.tv-glow-floor{
+  position:absolute;bottom:-20%;left:50%;transform:translateX(-50%);
+  width:70%;height:40px;
+  background:radial-gradient(ellipse,rgba(0,119,200,.2) 0%,transparent 70%);
+  filter:blur(12px);z-index:2;
+}
+
+/* CONTENT SLIDES inside TV */
 .tv-screen{position:relative;width:100%;height:100%;overflow:hidden;}
-.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .8s ease;background-size:cover;background-position:center;}
+.slide{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .8s ease;
+}
 .slide.active{opacity:1;}
 
+/* Slide 1: Football match */
+.slide-match{
+  background:linear-gradient(135deg,rgba(0,30,80,.9) 0%,rgba(0,8,20,.95) 100%);
+  flex-direction:column;gap:0;
+}
+.match-top-bar{
+  position:absolute;top:0;left:0;right:0;
+  background:rgba(0,0,0,.6);
+  padding:clamp(4px,1.2vw,10px) clamp(8px,2vw,20px);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:'Montserrat',sans-serif;font-size:clamp(7px,1.1vw,12px);font-weight:700;letter-spacing:.1em;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.match-badge{background:var(--blue);color:#fff;padding:2px 8px;border-radius:3px;font-size:clamp(6px,.9vw,10px);letter-spacing:.15em;}
+.match-live-dot{display:inline-block;width:6px;height:6px;background:#e00;border-radius:50%;margin-right:4px;animation:blink 1.2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.match-center{display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,40px);padding:clamp(20px,4vw,50px) 0 clamp(10px,2vw,20px);}
+.team{display:flex;flex-direction:column;align-items:center;gap:clamp(4px,1vw,10px);}
+.team-flag{font-size:clamp(20px,4vw,52px);}
+.team-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(9px,1.5vw,18px);letter-spacing:.12em;color:#fff;}
+.score-box{display:flex;align-items:center;gap:clamp(6px,1.5vw,16px);}
+.score-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,6vw,72px);color:#fff;line-height:1;}
+.score-sep{font-family:'Montserrat',sans-serif;font-weight:300;font-size:clamp(20px,4vw,48px);color:var(--silver);opacity:.6;}
+.match-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(0,0,0,.55);padding:clamp(4px,1vw,8px) clamp(8px,2vw,20px);
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:clamp(6px,.9vw,10px);color:var(--silver);letter-spacing:.08em;
+}
+.qual-badge{background:rgba(0,200,106,.15);border:1px solid rgba(0,200,106,.3);color:#00c86a;padding:2px 8px;border-radius:3px;font-size:clamp(6px,.8vw,9px);font-weight:700;letter-spacing:.12em;}
+
+/* Slide 2: Disney+ content showcase */
+.slide-disney{
+  background:linear-gradient(160deg,#000d1a 0%,#00061a 50%,#010818 100%);
+  flex-direction:column;align-items:flex-start;justify-content:flex-end;
+  padding:clamp(10px,2.5vw,30px);
+}
+.slide-disney::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 60% at 70% 30%, rgba(0,80,200,.25) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 20% 20%, rgba(0,40,120,.2) 0%, transparent 50%);
+}
+.d-grid{
+  position:absolute;top:10%;right:5%;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(4px,1vw,10px);
+  width:55%;
+}
+.d-thumb{
+  aspect-ratio:2/3;border-radius:4px;overflow:hidden;
+  background:linear-gradient(135deg,var(--c1) 0%,var(--c2) 100%);
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(6px,1vw,11px);
+  color:rgba(255,255,255,.7);letter-spacing:.05em;text-align:center;line-height:1.2;
+  padding:4px;
+}
+.slide-disney .d-logo{position:relative;z-index:2;margin-bottom:clamp(6px,1.5vw,14px);}
+.slide-disney .d-text{position:relative;z-index:2;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(10px,1.8vw,20px);color:#fff;line-height:1.2;max-width:45%;}
+.slide-disney .d-sub{position:relative;z-index:2;font-size:clamp(7px,1.1vw,12px);color:var(--silver);margin-top:clamp(3px,.8vw,8px);max-width:45%;}
+
+/* Slide 3: Sports channels */
+.slide-sports{
+  background:linear-gradient(145deg,#030a02 0%,#060d04 100%);
+  align-items:center;justify-content:center;flex-direction:column;gap:clamp(8px,2vw,20px);
+}
+.slide-sports::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(0,119,200,.12) 0%,transparent 70%);}
+.sports-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(6px,1.5vw,16px);position:relative;z-index:2;width:80%;}
+.sport-card{
+  aspect-ratio:1;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.5vw,6px);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  transition:transform .2s;
+}
+.sport-label{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(6px,.9vw,11px);letter-spacing:.1em;color:rgba(255,255,255,.8);}
+.sports-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(9px,1.5vw,16px);color:var(--silver);letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:2;}
+
+/* TV channel indicator dots */
+.tv-dots{display:flex;gap:5px;justify-content:center;margin-top:8px;}
+.tv-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s,transform .3s;cursor:none;}
+.tv-dot.on{background:var(--blue);transform:scale(1.3);}
+
 /* HEADER */
-header{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;background:rgba(2,2,2,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.logo-txt{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;letter-spacing:.05em;color:var(--white);text-decoration:none;}
-.hbadge{font-size:10px;font-weight:600;color:var(--silver);letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--blue-bd);padding:6px 14px;border-radius:20px;}
+header{position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;border-bottom:1px solid var(--border);background:rgba(2,2,2,.75);backdrop-filter:blur(20px);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{width:34px;height:34px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-txt{font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;letter-spacing:.07em;}
+.hbadge{font-size:10px;font-weight:600;color:var(--silver);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--blue-bd);padding:4px 12px;border-radius:20px;}
 
-/* CONTENT */
-.hcontent{position:relative;z-index:10;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding:40px 24px 80px;padding-top:450px;}
-.eyebrow{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);margin-bottom:15px;}
-.h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,6vw,64px);line-height:1;margin-bottom:15px;}
-.h1 span{color:var(--blue);}
-.hero-sub{font-size:17px;color:var(--silver);max-width:600px;line-height:1.6;margin-bottom:30px;}
-.btn-hero{display:inline-flex;align-items:center;gap:12px;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;padding:20px 45px;border-radius:4px;text-decoration:none;transition:0.3s;box-shadow:0 0 40px var(--bg-glow);}
-.btn-hero:hover{transform:translateY(-3px);box-shadow:0 0 60px var(--bg-glow);}
+/* HERO TEXT */
+.hcontent{
+  position:relative;z-index:10;flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;text-align:center;
+  padding:20px 24px 48px;
+  padding-top:calc(min(62%,680px) * 0.5625 + 60px + 80px);
+}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;opacity:0;animation:fu .6s ease .3s forwards;}
+.h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(26px,5.2vw,60px);line-height:1.07;letter-spacing:-.022em;margin-bottom:12px;opacity:0;animation:fu .6s ease .45s forwards;}
+.h1 .hl{color:var(--blue);}
+.hero-sub{font-size:clamp(14px,1.6vw,17px);font-weight:400;color:var(--silver);max-width:560px;line-height:1.65;margin-bottom:8px;opacity:0;animation:fu .6s ease .55s forwards;}
+.gancho-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,106,.1);border:1px solid rgba(0,200,106,.3);border-radius:30px;padding:8px 18px;font-size:13px;font-weight:600;color:#00e07a;margin-bottom:26px;opacity:0;animation:fu .6s ease .65s forwards;}
+.gancho-pill svg{width:15px;height:15px;stroke:#00e07a;fill:none;stroke-width:2;}
+.btn-hero{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(14px,1.5vw,16px);letter-spacing:.06em;text-transform:uppercase;padding:17px 40px;border-radius:4px;border:none;cursor:none;text-decoration:none;transition:all .25s;box-shadow:0 0 32px var(--bg-glow),0 4px 20px rgba(0,0,0,.4);opacity:0;animation:fu .6s ease .75s forwards;position:relative;overflow:hidden;}
+.btn-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:translateX(-100%);transition:transform .4s;}
+.btn-hero:hover::before{transform:translateX(100%);}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 0 55px var(--bg-glow),0 8px 30px rgba(0,0,0,.5);}
+.hero-trust{margin-top:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fu .6s ease .9s forwards;}
+.hero-trust span{font-size:11px;color:var(--silver);display:flex;align-items:center;gap:5px;}
+.hero-trust svg{width:13px;height:13px;}
+@keyframes fu{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 
-/* LOGOS STRIP */
-#logos-strip{background:var(--bg2);padding:30px 0;border-top:1px solid var(--border);overflow:hidden;}
-.ls-track{display:flex;gap:50px;animation:scroll 30s linear infinite;width:max-content;align-items:center;}
-@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.ls-item svg{height:30px;fill:currentColor;opacity:0.6;transition:0.3s;}
-.ls-item:hover svg{opacity:1;}
+/* ═══════════════ SEDUCCIÓN ═══════════════ */
+#seduccion{background:var(--bg1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.ben-block{display:grid;grid-template-columns:1fr 1fr;min-height:380px;overflow:hidden;}
+.ben-block:nth-child(even) .ben-visual{order:2;}
+.ben-block:nth-child(even) .ben-copy{order:1;}
+.ben-block+.ben-block{border-top:1px solid var(--border);}
+.ben-visual{position:relative;display:flex;align-items:center;justify-content:center;padding:50px 40px;overflow:hidden;}
+.ben-copy{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;}
+.bv-gift{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,200,106,.1) 0%,transparent 70%),#06100a;}
+.bv-truck{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,119,200,.12) 0%,transparent 70%),#05080f;}
+.bv-stream{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(90,20,200,.14) 0%,transparent 70%),#070510;}
+.bv-freeze{background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,180,255,.1) 0%,transparent 70%),#050c14;}
+.big-icon{width:110px;height:110px;border-radius:22px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
+.big-icon svg{width:52px;height:52px;stroke-width:1.4;fill:none;}
+.big-icon.gift{background:rgba(0,200,106,.1);border:1px solid rgba(0,200,106,.25);}
+.big-icon.gift svg{stroke:#00c86a;}
+.big-icon.truck{background:var(--blue-dim);border:1px solid var(--blue-bd);}
+.big-icon.truck svg{stroke:var(--blue);}
+.big-icon.stream{background:rgba(130,50,255,.1);border:1px solid rgba(130,50,255,.25);}
+.big-icon.stream svg{stroke:#a060ff;}
+.big-icon.freeze{background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);}
+.big-icon.freeze svg{stroke:#00d4ff;}
+.big-num{position:absolute;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(80px,10vw,130px);color:rgba(255,255,255,.025);letter-spacing:-.04em;user-select:none;z-index:1;}
+.ben-tag{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.ben-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(20px,2.8vw,34px);line-height:1.1;margin-bottom:14px;}
+.ben-body{font-size:15px;color:var(--silver);line-height:1.7;max-width:430px;}
+.ben-body strong{color:var(--white);}
+.ben-hl{margin-top:22px;padding:14px 18px;background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:8px;font-size:13px;color:var(--white);line-height:1.5;display:flex;align-items:center;gap:11px;}
+.ben-hl svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:2;flex-shrink:0;}
+.ben-hl.green{background:rgba(0,200,106,.07);border-color:rgba(0,200,106,.25);}
+.ben-hl.green svg{stroke:#00c86a;}
 
-/* PLANES */
-#planes{padding:100px 24px;max-width:1100px;margin:0 auto;}
-.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
-.pcard{background:var(--bg1);border:1px solid var(--blue-bd);border-radius:12px;padding:40px;transition:0.3s;}
-.pcard:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,0.5);}
-.pname{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;margin-bottom:10px;}
-.disc-badge{background:var(--blue);padding:5px 12px;border-radius:4px;font-weight:900;font-size:20px;}
+/* ═══════════════ LOGOS STRIP (official SVG) ═══════════════ */
+#logos-strip{background:var(--bg2);padding:20px 0;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.ls-label{text-align:center;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--silver);margin-bottom:14px;}
+.ls-track{display:flex;gap:0;animation:sl 28s linear infinite;width:max-content;align-items:center;}
+.ls-wrap{display:flex;gap:0;align-items:center;}
+.ls-item{flex-shrink:0;padding:0 32px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .25s;border-right:1px solid var(--border);}
+.ls-item:hover{opacity:1;}
+.ls-item svg,.ls-item img{height:28px;width:auto;display:block;}
+@keyframes sl{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-/* FORM */
-#formulario{padding:100px 24px;background:radial-gradient(circle at center, rgba(0,119,200,0.1), transparent);display:flex;justify-content:center;}
-.fbox{background:#000;border:1px solid var(--blue-bd);padding:50px;border-radius:16px;width:100%;max-width:600px;box-shadow:0 40px 100px rgba(0,0,0,0.8);}
-.fi, .fs {width:100%;background:#111;border:1px solid #333;padding:15px;color:#fff;margin-bottom:20px;border-radius:4px;outline:none;}
-.fi:focus, .fs:focus {border-color:var(--blue);}
-.btn-sub{width:100%;background:var(--blue);color:#fff;padding:18px;border:none;font-family:'Montserrat',sans-serif;font-weight:900;cursor:none;border-radius:4px;}
+/* ═══════════════ PLANES ═══════════════ */
+#planes{padding:80px 24px;max-width:1060px;margin:0 auto;}
+.sec-label{text-align:center;font-size:11px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.sec-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(24px,3.8vw,40px);text-align:center;line-height:1.1;margin-bottom:10px;}
+.sec-sub{text-align:center;color:var(--silver);font-size:clamp(14px,1.4vw,16px);margin-bottom:48px;max-width:500px;margin-left:auto;margin-right:auto;}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;}
 
-@media(max-width:768px){
+/* AMBOS planes igual de destacados */
+.pcard{
+  background:var(--bg1);
+  border:1px solid var(--blue-bd);
+  border-radius:10px;padding:34px 28px;position:relative;
+  transition:transform .3s,box-shadow .3s;
+}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 24px 64px rgba(0,0,0,.55),0 0 40px rgba(0,119,200,.1);}
+
+.ptype{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
+.pname{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(20px,2.2vw,26px);margin-bottom:18px;}
+.price-row{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.price-cross{font-family:'Montserrat',sans-serif;font-weight:700;font-size:19px;color:rgba(160,160,160,.5);text-decoration:line-through;}
+.disc-badge{background:rgba(0,119,200,.15);border:1px solid var(--blue-bd);border-radius:6px;padding:4px 12px;font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--blue);}
+.price-note{font-size:11px;color:var(--silver);margin-bottom:24px;margin-top:4px;line-height:1.4;opacity:.7;}
+.pdiv{height:1px;background:var(--border);margin-bottom:20px;}
+.pfeats{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:24px;}
+.pfeats li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:var(--silver);line-height:1.4;}
+.ck{width:17px;height:17px;flex-shrink:0;margin-top:1px;background:var(--blue-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.ck svg{width:9px;height:9px;stroke:var(--blue);}
+
+/* Plan included logos */
+.plan-logos{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;align-items:center;}
+.pl-chip{height:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:5px;padding:0 8px;display:flex;align-items:center;justify-content:center;}
+.pl-chip svg{height:14px;width:auto;}
+
+.btn-plan{display:block;width:100%;text-align:center;text-decoration:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:14px;border-radius:4px;cursor:none;transition:all .25s;background:var(--blue);color:#fff;border:none;box-shadow:0 0 22px var(--bg-glow);position:relative;overflow:hidden;}
+.btn-plan::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);transition:transform .45s;}
+.btn-plan:hover::before{transform:translateX(100%);}
+.btn-plan:hover{box-shadow:0 0 44px var(--bg-glow);transform:translateY(-1px);}
+
+/* ═══════════════ FORMULARIO ═══════════════ */
+#formulario{position:relative;padding:80px 24px;overflow:hidden;}
+.fbg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(0,40,100,.18) 0%,transparent 70%),var(--bg);z-index:0;}
+.fbg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,119,200,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,119,200,.03) 1px,transparent 1px);background-size:48px 48px;}
+.forb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.forb-1{width:380px;height:380px;background:rgba(0,119,200,.1);top:-90px;right:-90px;}
+.forb-2{width:280px;height:280px;background:rgba(0,60,140,.12);bottom:-70px;left:-70px;}
+.fwrap{position:relative;z-index:10;max-width:580px;margin:0 auto;}
+.fbox{background:rgba(0,0,0,.78);border:1px solid var(--blue-bd);border-radius:12px;padding:44px 40px;backdrop-filter:blur(22px);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(0,119,200,.08);}
+.fsteps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:30px;}
+.fstep{display:flex;flex-direction:column;align-items:center;gap:5px;position:relative;flex:1;}
+.fstep:not(:last-child)::after{content:'';position:absolute;top:14px;left:calc(50% + 18px);right:calc(-50% + 18px);height:1px;background:var(--border);}
+.fstep.active .fsn{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 14px var(--bg-glow);}
+.fstep.done .fsn{background:rgba(0,200,106,.15);border-color:var(--green);color:var(--green);}
+.fsn{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;color:var(--silver);transition:all .3s;z-index:1;background:var(--bg1);}
+.fsl{font-size:9px;color:var(--silver);letter-spacing:.07em;white-space:nowrap;}
+.ftitle{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(18px,2.5vw,24px);line-height:1.2;margin-bottom:7px;}
+.fsub{font-size:13px;color:var(--silver);margin-bottom:26px;line-height:1.5;}
+.fg{margin-bottom:13px;}
+.fl{display:block;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--silver);margin-bottom:6px;}
+.fi,.fs{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:13px 15px;color:var(--white);font-family:'Inter',sans-serif;font-size:15px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none;outline:none;}
+.fi::placeholder{color:rgba(255,255,255,.2);}
+.fi:focus,.fs:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,119,200,.15);background:rgba(0,119,200,.06);}
+.fs{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23A0A0A0' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:38px;background-color:rgba(255,255,255,.04);cursor:none;}
+.fs option{background:#111;color:#fff;}
+.rg{display:flex;flex-direction:column;gap:7px;}
+.ro{display:flex;align-items:center;gap:10px;cursor:none;padding:11px 13px;border:1px solid rgba(255,255,255,.07);border-radius:4px;transition:all .2s;}
+.ro:hover{border-color:var(--blue);background:var(--blue-dim);}
+.ro input[type=radio]{appearance:none;width:15px;height:15px;border:1.5px solid rgba(255,255,255,.3);border-radius:50%;flex-shrink:0;position:relative;cursor:none;transition:all .2s;}
+.ro input[type=radio]:checked{border-color:var(--blue);background:var(--blue);box-shadow:0 0 0 3px rgba(0,119,200,.2);}
+.ro input[type=radio]:checked::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:5px;height:5px;background:#fff;border-radius:50%;}
+.ro span{font-size:14px;color:var(--silver);}
+.ro:has(input:checked){border-color:var(--blue);background:var(--blue-dim);}
+.ro:has(input:checked) span{color:var(--white);}
+.lq-cold{display:none;margin-top:9px;padding:9px 13px;background:rgba(220,30,30,.07);border:1px solid rgba(220,30,30,.2);border-radius:5px;font-size:12px;color:rgba(255,130,130,.8);line-height:1.5;}
+.btn-sub{display:block;width:100%;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;letter-spacing:.1em;text-transform:uppercase;padding:16px;border-radius:4px;border:none;cursor:none;transition:all .25s;box-shadow:0 0 26px var(--bg-glow);margin-top:20px;position:relative;overflow:hidden;}
+.btn-sub::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-100%);transition:transform .5s;}
+.btn-sub:hover::before{transform:translateX(100%);}
+.btn-sub:hover{box-shadow:0 0 50px var(--bg-glow),0 8px 28px rgba(0,0,0,.4);transform:translateY(-1px);}
+.tbadges{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:12px;flex-wrap:wrap;}
+.tbadge{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--silver);opacity:.6;}
+.tbadge svg{width:12px;height:12px;}
+#succ{display:none;text-align:center;padding:38px 0;}
+.succ-icon{width:58px;height:58px;background:rgba(0,200,106,.1);border:1px solid rgba(0,200,106,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.succ-t{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;margin-bottom:8px;}
+.succ-s{font-size:14px;color:var(--silver);line-height:1.5;}
+
+/* ═══════════════ FAQs ═══════════════ */
+#faqs{padding:80px 24px;background:var(--bg2);}
+.faqs-in{max-width:700px;margin:0 auto;}
+.fq-list{margin-top:42px;}
+.fq{border-bottom:1px solid var(--border);}
+.fq:first-child{border-top:1px solid var(--border);}
+.fqt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 0;width:100%;background:none;border:none;color:var(--white);font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(13px,1.3vw,15px);text-align:left;cursor:none;transition:color .2s;}
+.fqt:hover{color:var(--blue);}
+.fqi{width:25px;height:25px;border-radius:50%;border:1px solid var(--blue-bd);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s;}
+.fq.open .fqi{background:var(--blue);border-color:var(--blue);transform:rotate(45deg);}
+.fqi svg{width:11px;height:11px;stroke:var(--silver);}
+.fq.open .fqi svg{stroke:#fff;}
+.fqa{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;}
+.fq.open .fqa{max-height:260px;padding-bottom:16px;}
+.fqa p{font-size:14px;color:var(--silver);line-height:1.7;}
+
+/* ═══════════════ FOOTER ═══════════════ */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 24px 28px;position:relative;overflow:hidden;}
+.foot-bg{position:absolute;right:-4%;bottom:-8%;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(80px,14vw,170px);color:rgba(255,255,255,.015);letter-spacing:-.05em;user-select:none;pointer-events:none;line-height:1;}
+.foot-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;margin-bottom:30px;position:relative;}
+.foot-brand{font-size:13px;color:var(--silver);line-height:1.6;}
+.foot-brand strong{color:var(--white);}
+.foot-logo-row{display:flex;align-items:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;color:var(--white);margin-bottom:10px;}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:13px;}
+.foot-links a{font-size:11px;color:var(--sdim);text-decoration:none;transition:color .2s;letter-spacing:.04em;}
+.foot-links a:hover{color:var(--silver);}
+.foot-social{display:flex;gap:8px;}
+.soc{width:33px;height:33px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--silver);text-decoration:none;transition:all .2s;font-size:11px;font-weight:700;}
+.soc:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 0 13px var(--bg-glow);}
+.foot-div{max-width:1100px;margin:0 auto 16px;height:1px;background:var(--border);}
+.foot-leg{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.foot-copy{font-size:11px;color:var(--sdim);}
+.foot-disc{font-size:10px;color:rgba(160,160,160,.28);max-width:520px;line-height:1.6;text-align:right;}
+
+/* STICKY */
+.sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;padding:10px 14px;background:rgba(2,2,2,.93);backdrop-filter:blur(18px);border-top:1px solid var(--blue-bd);}
+
+/* FADE IN */
+.fia{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fia.vis{opacity:1;transform:none;}
+.sl{transform:translateX(-34px)!important;}
+.sr{transform:translateX(34px)!important;}
+.fia.sl.vis,.fia.sr.vis{transform:none!important;}
+.fia:nth-child(2){transition-delay:.1s;}
+.fia:nth-child(3){transition-delay:.18s;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .ben-block{grid-template-columns:1fr;min-height:auto;}
+  .ben-block:nth-child(even) .ben-visual,.ben-block:nth-child(even) .ben-copy{order:unset;}
+  .ben-visual{min-height:180px;padding:36px;}
+  .ben-copy{padding:32px 24px;}
   .plans-grid{grid-template-columns:1fr;}
-  .hcontent{padding-top:350px;}
+}
+@media(max-width:768px){
+  header{padding:14px 16px;}.hbadge{display:none;}
+  .hcontent{padding-top:calc(min(88vw,680px)*0.5625 + 80px + 60px);}
+  .tv-room{width:88%;}
+  .fbox{padding:26px 16px;}
+  .foot-in{grid-template-columns:1fr;}.foot-social{order:-1;}
+  .foot-disc{text-align:left;}
+  .sticky{display:block;}
+  #formulario{padding-bottom:84px;}
   body{cursor:auto;}#cur{display:none;}
+}
+@media(max-width:480px){
+  .h1{font-size:24px;}.tv-room{width:92%;}
+  .hcontent{padding-top:calc(92vw*0.5625 + 70px + 50px);}
+  .ben-copy{padding:24px 18px;}
 }
 </style>
 </head>
@@ -85,143 +412,644 @@ header{position:relative;z-index:20;display:flex;align-items:center;justify-cont
 
 <div id="cur"><div class="ring"></div><div class="dot"></div></div>
 
+<!-- ══════════════ HERO ══════════════ -->
 <section id="hero">
   <div class="hbg"></div>
+
+  <!-- SMART TV con contenido animado -->
+  <div class="tv-room" style="position:absolute;top:52px;left:50%;transform:translateX(-50%);z-index:3;">
+    <div class="tv-body">
+      <div class="tv-screen">
+
+        <!-- Slide 1: Partido en vivo -->
+        <div class="slide slide-match active" id="slide-0">
+          <div class="match-top-bar">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="match-badge">COPA MUNDIAL 2026</span>
+              <span style="color:var(--silver);font-size:clamp(6px,.9vw,10px);">SEMIFINAL · EST. METLIFE</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;color:var(--silver);">
+              <span class="match-live-dot"></span>
+              <span style="color:#fff;font-weight:700;">EN VIVO</span>
+              <span style="margin-left:6px;color:var(--blue);">72'</span>
+            </div>
+          </div>
+          <div class="match-center">
+            <div class="team">
+              <span class="team-flag">🇦🇷</span>
+              <span class="team-name">ARGENTINA</span>
+            </div>
+            <div class="score-box">
+              <span class="score-num">2</span>
+              <span class="score-sep">—</span>
+              <span class="score-num">1</span>
+            </div>
+            <div class="team">
+              <span class="team-flag">🇧🇷</span>
+              <span class="team-name">BRASIL</span>
+            </div>
+          </div>
+          <div class="match-bottom">
+            <span>⚽ GOL: L. MARTÍNEZ 34' · 61'</span>
+            <span class="qual-badge">4K HDR · DOLBY ATMOS</span>
+          </div>
+        </div>
+
+        <!-- Slide 2: Plataformas de streaming -->
+        <div class="slide slide-disney" id="slide-1">
+          <div class="d-grid">
+            <div class="d-thumb" style="--c1:#0d1b5e;--c2:#1a3a8f;">MARVEL<br>UNIVERSE</div>
+            <div class="d-thumb" style="--c1:#1a0030;--c2:#3d0070;">STAR<br>WARS</div>
+            <div class="d-thumb" style="--c1:#1a1a00;--c2:#3d3d00;">PIXAR<br>FILMS</div>
+            <div class="d-thumb" style="--c1:#001a0d;--c2:#003d1f;">NAT<br>GEO</div>
+            <div class="d-thumb" style="--c1:#001230;--c2:#00275e;">HBO<br>SERIES</div>
+            <div class="d-thumb" style="--c1:#1a0005;--c2:#40000d;">PRIME<br>VIDEO</div>
+          </div>
+          <!-- Disney+ logo SVG fiel -->
+          <div class="d-logo">
+            <svg height="28" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="24" font-family="Arial,sans-serif" font-weight="900" font-size="22" fill="#ffffff" letter-spacing="-0.5">Disney</text>
+              <text x="82" y="24" font-family="Arial,sans-serif" font-weight="900" font-size="26" fill="#0ea5e9">+</text>
+            </svg>
+          </div>
+          <p class="d-text">Miles de películas y series. Siempre incluido.</p>
+          <p class="d-sub">Disney · Pixar · Marvel · Star Wars · Nat Geo</p>
+        </div>
+
+        <!-- Slide 3: Deportes -->
+        <div class="slide slide-sports" id="slide-2">
+          <p class="sports-title">DEPORTES EN VIVO · 24/7</p>
+          <div class="sports-grid">
+            <div class="sport-card" style="background:rgba(200,16,46,.12);border-color:rgba(200,16,46,.2);">
+              <svg width="28" height="28" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="none" stroke="#C8102E" stroke-width="2"/><text x="50%" y="56%" text-anchor="middle" font-family="Arial" font-weight="900" font-size="10" fill="#C8102E">NBA</text></svg>
+              <span class="sport-label">BÁSQUET</span>
+            </div>
+            <div class="sport-card" style="background:rgba(1,51,105,.15);border-color:rgba(1,51,105,.3);">
+              <svg width="28" height="28" viewBox="0 0 40 40"><rect x="2" y="10" width="36" height="20" rx="3" fill="none" stroke="#013369" stroke-width="2"/><text x="50%" y="58%" text-anchor="middle" font-family="Arial" font-weight="900" font-size="9" fill="#013369">NFL</text></svg>
+              <span class="sport-label">FÚTBOL AM.</span>
+            </div>
+            <div class="sport-card" style="background:rgba(0,45,114,.15);border-color:rgba(0,45,114,.3);">
+              <svg width="28" height="28" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="16" ry="10" fill="none" stroke="#002D72" stroke-width="2"/><text x="50%" y="58%" text-anchor="middle" font-family="Arial" font-weight="900" font-size="9" fill="#002D72">MLB</text></svg>
+              <span class="sport-label">BÉISBOL</span>
+            </div>
+            <div class="sport-card" style="background:rgba(0,119,200,.1);border-color:rgba(0,119,200,.2);">
+              <svg width="28" height="28" viewBox="0 0 40 40"><circle cx="20" cy="20" r="14" fill="none" stroke="#0077C8" stroke-width="2"/><path d="M14 20 Q20 12 26 20 Q20 28 14 20Z" fill="#0077C8" opacity=".5"/></svg>
+              <span class="sport-label">FÚTBOL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- stand -->
+    <div style="width:14%;margin:0 auto;border-left:2.5px solid transparent;border-right:2.5px solid transparent;border-top:18px solid #141414;position:relative;">
+      <div style="position:absolute;top:18px;left:50%;transform:translateX(-50%);width:220%;height:5px;background:#111;border-radius:0 0 3px 3px;"></div>
+    </div>
+    <!-- glow floor -->
+    <div style="width:70%;margin:-2px auto 0;height:30px;background:radial-gradient(ellipse,rgba(0,119,200,.18) 0%,transparent 70%);filter:blur(10px);"></div>
+    <!-- dots indicator -->
+    <div class="tv-dots" id="tv-dots">
+      <div class="tv-dot on"></div>
+      <div class="tv-dot"></div>
+      <div class="tv-dot"></div>
+    </div>
+  </div>
+
   <header>
-    <a class="logo-txt" href="#">DIRECTV</a>
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <!-- DirecTV D+ logo fiel -->
+        <svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="17" fill="#0077C8"/><text x="50%" y="62%" text-anchor="middle" font-family="Arial" font-weight="900" font-size="13" fill="white">D+</text></svg>
+      </div>
+      <span class="logo-txt">DirecTV</span>
+    </a>
     <div class="hbadge">Distribuidor Oficial Autorizado</div>
   </header>
 
-  <div class="tv-room">
-    <div class="tv-body">
-      <div class="tv-screen">
-        <!-- Slide 1: Fútbol Original UI -->
-        <div class="slide active" style="background-color:#001e50; flex-direction:column;">
-            <div style="width:100%; padding:10px 20px; display:flex; justify-content:space-between; font-weight:900; font-size:12px;">
-                <span>COPA MUNDIAL 2026</span>
-                <span style="color:#ff3b30;">● EN VIVO</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:30px; margin-top:20px;">
-                <div style="text-align:center;"><span style="font-size:40px;">🇦🇷</span><br>ARG</div>
-                <div style="font-size:48px; font-weight:900;">2 - 0</div>
-                <div style="text-align:center;"><span style="font-size:40px;">🇫🇷</span><br>FRA</div>
-            </div>
+  <div class="hcontent">
+    <p class="eyebrow">Oferta Exclusiva · Nuevas Altas · Mundial 2026</p>
+    <h1 class="h1">Abril y Mayo<br><span class="hl">completamente gratis.</span></h1>
+    <p class="hero-sub">Activá hoy y empezá a disfrutar DirecTV sin pagar nada hasta Junio. Con instalación oficial sin cargo y todas las plataformas incluidas desde el primer día.</p>
+    <div class="gancho-pill">
+      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Primera factura: Junio 2025 · Precio congelado 5 meses
+    </div>
+    <a href="#formulario" class="btn-hero">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      Quiero mis 2 meses gratis
+    </a>
+    <div class="hero-trust">
+      <span><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Instalación oficial $0</span>
+      <span><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Datos 100% seguros</span>
+      <span><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Sin permanencia</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ SEDUCCIÓN ══════════════ -->
+<section id="seduccion">
+  <div class="ben-block">
+    <div class="ben-visual bv-gift">
+      <span class="big-num">01</span>
+      <div class="big-icon gift">
+        <svg viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+      </div>
+    </div>
+    <div class="ben-copy">
+      <p class="ben-tag fia">Beneficio exclusivo de entrada</p>
+      <h2 class="ben-title fia">Abril y Mayo<br>son por nuestra cuenta.</h2>
+      <p class="ben-body fia">Activá hoy y <strong>los primeros 2 meses son completamente bonificados</strong>. Instalamos, activamos y empezás a ver todo DirecTV sin que se te cobre absolutamente nada hasta Junio.</p>
+      <div class="ben-hl green fia">
+        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+        Primera factura: <strong style="color:#fff;margin-left:4px;">Junio 2025 — precio congelado por 5 meses</strong>
+      </div>
+    </div>
+  </div>
+  <div class="ben-block">
+    <div class="ben-copy" style="order:1;">
+      <p class="ben-tag fia">Sin costos ocultos</p>
+      <h2 class="ben-title fia">Instalación y mantenimiento<br>sin cargo, para siempre.</h2>
+      <p class="ben-body fia">El equipo técnico oficial de DirecTV Argentina viene a tu domicilio, instala el sistema completo y lo deja funcionando. <strong>Sin cobro de visita, sin costo de kit, sin cargo por mano de obra.</strong></p>
+      <div class="ben-hl fia">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Coordinamos la visita en <strong style="color:#fff;">24 a 48 horas hábiles</strong>
+      </div>
+    </div>
+    <div class="ben-visual bv-truck" style="order:2;">
+      <span class="big-num">02</span>
+      <div class="big-icon truck">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="ben-block">
+    <div class="ben-visual bv-stream">
+      <span class="big-num">03</span>
+      <div class="big-icon stream">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2"/><path d="M17 2l-5 5-5-5"/></svg>
+      </div>
+    </div>
+    <div class="ben-copy">
+      <p class="ben-tag fia">Ecosistema completo</p>
+      <h2 class="ben-title fia">Disney+, Prime Video,<br>Universal+ y más — incluidos.</h2>
+      <p class="ben-body fia">Con el Plan Oro HD tenés acceso total a las principales plataformas de streaming <strong>sin pagar suscripciones adicionales</strong>. Todo en un solo abono, activo desde el primer día.</p>
+      <div class="ben-hl fia">
+        <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Disney+ · Prime Video · Universal+ · HBO Max · Paramount+ · DGO incluidos
+      </div>
+    </div>
+  </div>
+  <div class="ben-block">
+    <div class="ben-copy" style="order:1;">
+      <p class="ben-tag fia">Protección contra la inflación</p>
+      <h2 class="ben-title fia">Tu valor queda fijo<br>por 5 meses.</h2>
+      <p class="ben-body fia">En un contexto de actualizaciones tarifarias constantes, <strong>tu precio queda congelado desde el momento de la activación</strong>. Lo que cerrás hoy es lo que pagás los próximos 5 meses.</p>
+      <div class="ben-hl fia" style="background:rgba(0,200,255,.07);border-color:rgba(0,200,255,.2);">
+        <svg viewBox="0 0 24 24" style="stroke:#00d4ff;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Precio acordado hoy · <strong style="color:#fff;margin-left:4px;">congelado hasta Octubre 2025</strong>
+      </div>
+    </div>
+    <div class="ben-visual bv-freeze" style="order:2;">
+      <span class="big-num">04</span>
+      <div class="big-icon freeze">
+        <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ LOGOS STRIP ══════════════ -->
+<div id="logos-strip">
+  <p class="ls-label">Todo esto incluido en tu plan</p>
+  <div style="overflow:hidden;">
+    <div class="ls-track">
+      <!-- SET 1 -->
+      <div class="ls-wrap">
+        <!-- Disney+ -->
+        <div class="ls-item" title="Disney+">
+          <svg height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="18" font-family="Arial,sans-serif" font-weight="900" font-size="17" fill="#fff">Disney</text><text x="63" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="20" fill="#0ea5e9">+</text></svg>
+        </div>
+        <!-- Prime Video -->
+        <div class="ls-item" title="Prime Video">
+          <svg height="22" viewBox="0 0 100 22" fill="none">
+            <text x="0" y="17" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#00A8E0">prime</text>
+            <text x="0" y="32" font-family="Arial,sans-serif" font-weight="400" font-size="11" fill="#fff">video</text>
+            <!-- smile arrow -->
+            <path d="M3 36 Q50 44 97 36" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <!-- HBO Max -->
+        <div class="ls-item" title="Max / HBO">
+          <svg height="22" viewBox="0 0 70 22" fill="none">
+            <rect x="0" y="1" width="68" height="20" rx="3" fill="#002BE0"/>
+            <text x="5" y="16" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="white">max</text>
+            <circle cx="52" cy="11" r="6" fill="none" stroke="white" stroke-width="1.5"/>
+            <text x="49" y="15" font-family="Arial,sans-serif" font-weight="900" font-size="8" fill="white">H</text>
+          </svg>
+        </div>
+        <!-- Paramount+ -->
+        <div class="ls-item" title="Paramount+">
+          <svg height="26" viewBox="0 0 110 26" fill="none">
+            <!-- mountain -->
+            <path d="M18 20L26 8L34 20Z" fill="#0064FF" opacity=".9"/>
+            <path d="M8 20L20 4L32 20Z" fill="#0064FF"/>
+            <text x="38" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="14" fill="#fff">Paramount</text>
+            <text x="100" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="#0064FF">+</text>
+          </svg>
+        </div>
+        <!-- Universal+ -->
+        <div class="ls-item" title="Universal+">
+          <svg height="22" viewBox="0 0 105 22" fill="none">
+            <circle cx="11" cy="11" r="10" fill="none" stroke="#333" stroke-width="1.5"/>
+            <ellipse cx="11" cy="11" rx="5" ry="10" fill="none" stroke="#555" stroke-width="1"/>
+            <line x1="1" y1="11" x2="21" y2="11" stroke="#444" stroke-width="1"/>
+            <text x="26" y="17" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#fff">Universal</text>
+            <text x="97" y="17" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="#888">+</text>
+          </svg>
+        </div>
+        <!-- NBA -->
+        <div class="ls-item" title="NBA">
+          <svg height="26" viewBox="0 0 60 26" fill="none">
+            <rect x="0" y="0" width="58" height="26" rx="3" fill="#C8102E"/>
+            <path d="M16 3 Q10 13 16 23" stroke="#1D428A" stroke-width="2" fill="none"/>
+            <path d="M16 3 Q22 13 16 23" stroke="#1D428A" stroke-width="2" fill="none"/>
+            <text x="22" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">NBA</text>
+          </svg>
+        </div>
+        <!-- NFL -->
+        <div class="ls-item" title="NFL">
+          <svg height="26" viewBox="0 0 60 26" fill="none">
+            <rect x="0" y="0" width="58" height="26" rx="3" fill="#013369"/>
+            <text x="8" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">NFL</text>
+            <!-- football shape -->
+            <ellipse cx="46" cy="13" rx="9" ry="6" fill="#C60C30" opacity=".8"/>
+            <line x1="37" y1="13" x2="55" y2="13" stroke="#fff" stroke-width=".8"/>
+            <line x1="43" y1="8" x2="43" y2="18" stroke="#fff" stroke-width=".8"/>
+            <line x1="49" y1="8" x2="49" y2="18" stroke="#fff" stroke-width=".8"/>
+          </svg>
+        </div>
+        <!-- MLB -->
+        <div class="ls-item" title="MLB">
+          <svg height="26" viewBox="0 0 65 26" fill="none">
+            <rect x="0" y="0" width="63" height="26" rx="3" fill="#002D72"/>
+            <text x="6" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">MLB</text>
+            <!-- stitches -->
+            <path d="M46 6 Q52 13 46 20" stroke="#E31837" stroke-width="1.5" fill="none"/>
+            <path d="M56 6 Q50 13 56 20" stroke="#E31837" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <!-- ESPN -->
+        <div class="ls-item" title="ESPN">
+          <svg height="26" viewBox="0 0 72 26" fill="none">
+            <rect x="0" y="0" width="70" height="26" rx="3" fill="#CC0000"/>
+            <text x="7" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="white" letter-spacing="1">ESPN</text>
+          </svg>
+        </div>
+        <!-- App DGO -->
+        <div class="ls-item" title="App DGO">
+          <svg height="26" viewBox="0 0 72 26" fill="none">
+            <rect x="0" y="0" width="70" height="26" rx="3" fill="#0054A6"/>
+            <text x="8" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white" letter-spacing=".5">DGO</text>
+          </svg>
+        </div>
+      </div>
+      <!-- SET 2 (duplicate for infinite loop) -->
+      <div class="ls-wrap" aria-hidden="true">
+        <div class="ls-item" title="Disney+">
+          <svg height="22" viewBox="0 0 90 22" fill="none"><text x="0" y="18" font-family="Arial,sans-serif" font-weight="900" font-size="17" fill="#fff">Disney</text><text x="63" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="20" fill="#0ea5e9">+</text></svg>
+        </div>
+        <div class="ls-item" title="Prime Video">
+          <svg height="22" viewBox="0 0 100 22" fill="none">
+            <text x="0" y="17" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#00A8E0">prime</text>
+            <text x="0" y="32" font-family="Arial,sans-serif" font-weight="400" font-size="11" fill="#fff">video</text>
+            <path d="M3 36 Q50 44 97 36" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="ls-item" title="Max">
+          <svg height="22" viewBox="0 0 70 22" fill="none"><rect x="0" y="1" width="68" height="20" rx="3" fill="#002BE0"/><text x="5" y="16" font-family="Arial,sans-serif" font-weight="900" font-size="13" fill="white">max</text></svg>
+        </div>
+        <div class="ls-item" title="Paramount+">
+          <svg height="26" viewBox="0 0 110 26" fill="none"><path d="M8 20L20 4L32 20Z" fill="#0064FF"/><text x="38" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="14" fill="#fff">Paramount</text><text x="100" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="#0064FF">+</text></svg>
+        </div>
+        <div class="ls-item" title="Universal+">
+          <svg height="22" viewBox="0 0 105 22" fill="none"><circle cx="11" cy="11" r="10" fill="none" stroke="#333" stroke-width="1.5"/><text x="26" y="17" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#fff">Universal</text><text x="97" y="17" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="#888">+</text></svg>
+        </div>
+        <div class="ls-item" title="NBA">
+          <svg height="26" viewBox="0 0 60 26" fill="none"><rect x="0" y="0" width="58" height="26" rx="3" fill="#C8102E"/><text x="22" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">NBA</text></svg>
+        </div>
+        <div class="ls-item" title="NFL">
+          <svg height="26" viewBox="0 0 60 26" fill="none"><rect x="0" y="0" width="58" height="26" rx="3" fill="#013369"/><text x="8" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">NFL</text></svg>
+        </div>
+        <div class="ls-item" title="MLB">
+          <svg height="26" viewBox="0 0 65 26" fill="none"><rect x="0" y="0" width="63" height="26" rx="3" fill="#002D72"/><text x="6" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white">MLB</text></svg>
+        </div>
+        <div class="ls-item" title="ESPN">
+          <svg height="26" viewBox="0 0 72 26" fill="none"><rect x="0" y="0" width="70" height="26" rx="3" fill="#CC0000"/><text x="7" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="16" fill="white" letter-spacing="1">ESPN</text></svg>
+        </div>
+        <div class="ls-item" title="DGO">
+          <svg height="26" viewBox="0 0 72 26" fill="none"><rect x="0" y="0" width="70" height="26" rx="3" fill="#0054A6"/><text x="8" y="19" font-family="Arial,sans-serif" font-weight="900" font-size="15" fill="white" letter-spacing=".5">DGO</text></svg>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="hcontent">
-    <p class="eyebrow">PROMOCIÓN EXCLUSIVA ABRIL 2026</p>
-    <h1 class="h1">Abril y Mayo<br><span>TOTALMENTE GRATIS.</span></h1>
-    <p class="hero-sub">Activá hoy tu servicio oficial y no pagues nada hasta Junio. Instalación bonificada y plataformas incluidas desde el primer minuto.</p>
-    <a href="#formulario" class="btn-hero">ACTIVAR BENEFICIO 70% OFF</a>
-  </div>
-</section>
-
-<div id="logos-strip">
-  <div class="ls-track">
-    <div class="ls-wrap" style="display:flex; gap:60px; align-items:center;">
-        <!-- Disney+ Original SVG -->
-        <svg width="100" height="40" viewBox="0 0 100 40"><path fill="#fff" d="M22.5 15.5c-2.3 0-3.4 1.5-3.4 3.3 0 1.8 1.2 3.3 3.4 3.3 2.2 0 3.4-1.5 3.4-3.3 0-1.8-1.2-3.3-3.4-3.3zm20.8-3.1c-1.3 0-2.3.4-3 1.2V9.6h-2.5v13.8h2.5v-7.1c0-1.9.9-2.9 2.2-2.9 1.2 0 2 1 2 2.5v7.5h2.5v-7.9c0-2.4-1.5-3.6-3.7-3.6z"/><path fill="#00A8E0" d="M12 10c0 10-10 10-10 10s10 0 10 10"/></svg>
-        <!-- HBO Max Original Style -->
-        <svg width="80" height="30" viewBox="0 0 100 30"><rect width="100" height="30" rx="4" fill="#002BE0"/><text x="10" y="22" font-family="Arial" font-weight="900" font-size="18" fill="white">max</text></svg>
-        <!-- Prime Video -->
-        <svg width="100" height="30" viewBox="0 0 100 30"><path fill="#00A8E0" d="M10 5h10v15H10z"/><path stroke="#FF9900" stroke-width="3" d="M5 25 Q50 35 95 25" fill="none"/></svg>
-        <!-- NBA -->
-        <svg width="60" height="30" viewBox="0 0 60 30"><rect width="60" height="30" rx="4" fill="#C8102E"/><text x="10" y="22" font-family="Arial" font-weight="900" font-size="16" fill="white">NBA</text></svg>
-    </div>
-  </div>
 </div>
 
+
+<!-- ══════════════ PLANES ══════════════ -->
 <section id="planes">
+  <p class="sec-label fia">Elegí tu experiencia</p>
+  <h2 class="sec-title fia">Dos planes. Un mismo<br>nivel de beneficios.</h2>
+  <p class="sec-sub fia">Ambos incluyen los 2 meses gratis, instalación sin cargo y precio congelado. El valor se confirma según tu provincia y banco al contactarte.</p>
+
   <div class="plans-grid">
-    <div class="pcard">
-      <p style="color:var(--blue); font-weight:900;">SUPER LITE</p>
-      <h3 class="pname">Esencial HD</h3>
-      <div style="margin:20px 0;"><span class="disc-badge">70% OFF</span></div>
-      <p style="color:var(--silver);">Abril y Mayo $0. Primera factura en Junio. Instalación bonificada.</p>
-      <ul style="list-style:none; margin:20px 0; color:var(--silver);">
-        <li>✓ 108 Canales (60+ HD)</li>
-        <li>✓ 1 Deco HD de última generación</li>
-        <li>✓ DGO y Prime Video Incluidos</li>
-      </ul>
-      <a href="#formulario" class="btn-sub" style="text-decoration:none; display:block; text-align:center;">LO QUIERO</a>
-    </div>
 
-    <div class="pcard" style="border-color:var(--white);">
-      <p style="color:var(--blue); font-weight:900;">ORO HD 2x1</p>
-      <h3 class="pname">Premium Max</h3>
-      <div style="margin:20px 0;"><span class="disc-badge">70% OFF</span></div>
-      <p style="color:var(--silver);">Abril y Mayo $0. Primera factura en Junio. Todo el streaming incluido.</p>
-      <ul style="list-style:none; margin:20px 0; color:var(--silver);">
-        <li>✓ 303 Canales (148 HD)</li>
-        <li>✓ 2 Decos HD instalados $0</li>
-        <li>✓ Disney+, Prime, Universal+ y HBO Incluidos</li>
-      </ul>
-      <a href="#formulario" class="btn-sub" style="text-decoration:none; display:block; text-align:center;">ACTIVAR PREMIUM</a>
-    </div>
-  </div>
-</section>
-
-<section id="formulario">
-  <div class="fbox">
-    <div id="succ" style="display:none; text-align:center;">
-        <h2 style="color:var(--green);">¡Solicitud Enviada!</h2>
-        <p>Un asesor de Connection Center te contactará por WhatsApp en minutos.</p>
-    </div>
-    <form id="sf">
-      <h3 style="margin-bottom:20px; font-family:'Montserrat';">Reservar Cupo Instalación Prioritaria</h3>
-      <input class="fi" type="text" id="nombre" placeholder="Nombre Completo" required>
-      <input class="fi" type="tel" id="whatsapp" placeholder="WhatsApp (Ej: 1138621061)" required>
-      <select class="fs" id="provincia" required>
-        <option value="" disabled selected>Provincia</option>
-        <option>Buenos Aires</option><option>Córdoba</option><option>Santa Fe</option><option>Mendoza</option><option>Otras</option>
-      </select>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:12px; color:var(--silver);">¿Poseés Tarjeta de Crédito?</label><br>
-        <input type="radio" name="tc" value="propia" required> Sí, propia 
-        <input type="radio" name="tc" value="familiar" style="margin-left:15px;"> De un familiar
+    <!-- SUPER LITE -->
+    <div class="pcard fia sl">
+      <p class="ptype">Plan Esencial</p>
+      <h3 class="pname">Super Lite</h3>
+      <div class="price-row">
+        <span class="price-cross">Precio lista</span>
+        <span class="disc-badge">−70% OFF</span>
       </div>
-      <button type="submit" class="btn-sub" id="sbtn">ENVIAR SOLICITUD</button>
-    </form>
+      <p class="price-note">Con Tarjeta de Crédito · Valor exacto según provincia y banco<br>Meses 1 y 2 completamente gratis</p>
+      <div class="pdiv"></div>
+      <!-- logos del plan -->
+      <div class="plan-logos">
+        <div class="pl-chip" title="App DGO"><svg height="14" viewBox="0 0 72 22" fill="none"><rect width="70" height="22" rx="2" fill="#0054A6"/><text x="6" y="16" font-family="Arial" font-weight="900" font-size="12" fill="white">DGO</text></svg></div>
+        <div class="pl-chip" title="Prime Video"><svg height="14" viewBox="0 0 60 22" fill="none"><text x="0" y="14" font-family="Arial" font-weight="700" font-size="12" fill="#00A8E0">prime</text><path d="M2 17 Q30 23 58 17" stroke="#FF9900" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+      </div>
+      <ul class="pfeats">
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>108 canales (60+ en HD)</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>1 Decodificador HD de última generación</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Acceso a App DGO y Prime Video</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Instalación completa sin cargo</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Abril y Mayo bonificados al 100%</li>
+      </ul>
+      <a href="#formulario" class="btn-plan">Quiero este plan →</a>
+    </div>
+
+    <!-- ORO HD -->
+    <div class="pcard fia sr">
+      <p class="ptype">Plan Premium</p>
+      <h3 class="pname">ORO HD 2×1</h3>
+      <div class="price-row">
+        <span class="price-cross">Precio lista</span>
+        <span class="disc-badge" style="font-size:22px;">−70% OFF</span>
+      </div>
+      <p class="price-note">Con Tarjeta de Crédito · Valor exacto según provincia y banco<br>Meses 1 y 2 completamente gratis</p>
+      <div class="pdiv"></div>
+      <!-- logos del plan Oro -->
+      <div class="plan-logos">
+        <div class="pl-chip" title="Disney+"><svg height="14" viewBox="0 0 88 20" fill="none"><text x="0" y="16" font-family="Arial" font-weight="900" font-size="14" fill="#fff">Disney</text><text x="61" y="17" font-family="Arial" font-weight="900" font-size="16" fill="#0ea5e9">+</text></svg></div>
+        <div class="pl-chip" title="Prime Video"><svg height="14" viewBox="0 0 60 20" fill="none"><text x="0" y="14" font-family="Arial" font-weight="700" font-size="12" fill="#00A8E0">prime</text><path d="M2 17 Q30 23 58 17" stroke="#FF9900" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="pl-chip" title="Universal+"><svg height="14" viewBox="0 0 80 20" fill="none"><text x="0" y="14" font-family="Arial" font-weight="700" font-size="12" fill="#ccc">Universal</text><text x="66" y="14" font-family="Arial" font-weight="900" font-size="14" fill="#888">+</text></svg></div>
+        <div class="pl-chip" title="Max"><svg height="14" viewBox="0 0 52 20" fill="none"><rect width="50" height="18" rx="2" fill="#002BE0"/><text x="4" y="13" font-family="Arial" font-weight="900" font-size="11" fill="white">max</text></svg></div>
+        <div class="pl-chip" title="App DGO"><svg height="14" viewBox="0 0 56 20" fill="none"><rect width="54" height="18" rx="2" fill="#0054A6"/><text x="4" y="13" font-family="Arial" font-weight="900" font-size="11" fill="white">DGO</text></svg></div>
+      </div>
+      <ul class="pfeats">
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>303 canales (148 en Alta Definición)</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>2 Decodificadores HD instalados sin cargo</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Disney+, Prime Video y Universal+ incluidos</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>HBO Max, Paramount+ incluidos</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Acceso total App DGO en todos los dispositivos</li>
+        <li><span class="ck"><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>Abril y Mayo bonificados al 100%</li>
+      </ul>
+      <a href="#formulario" class="btn-plan">Quiero este plan →</a>
+    </div>
+
   </div>
 </section>
+
+
+<!-- ══════════════ FORMULARIO ══════════════ -->
+<section id="formulario">
+  <div class="fbg"></div>
+  <div class="forb forb-1"></div>
+  <div class="forb forb-2"></div>
+  <div class="fwrap">
+    <div class="fbox fia">
+      <div id="succ">
+        <div class="succ-icon"><svg width="26" height="26" fill="none" stroke="#00c86a" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h3 class="succ-t">¡Solicitud recibida!</h3>
+        <p class="succ-s">Un asesor de Connection Center se va a comunicar con vos por WhatsApp a la brevedad para confirmar tu cobertura y el valor exacto según tu provincia.</p>
+      </div>
+      <div id="fc">
+        <div class="fsteps">
+          <div class="fstep active" id="si1"><div class="fsn">1</div><span class="fsl">Tus datos</span></div>
+          <div class="fstep" id="si2"><div class="fsn">2</div><span class="fsl">Tu provincia</span></div>
+          <div class="fstep" id="si3"><div class="fsn">3</div><span class="fsl">Confirmación</span></div>
+        </div>
+        <h3 class="ftitle" id="ft">Reservá tu cupo — Instalación Prioritaria Mundial 2026</h3>
+        <p class="fsub" id="fs">Completá tus datos y un asesor te contacta con el valor exacto para tu zona y banco. Sin compromiso.</p>
+        <form id="sf" novalidate>
+          <div id="step1">
+            <div class="fg"><label class="fl" for="nombre">Nombre Completo</label><input class="fi" type="text" id="nombre" placeholder="Ej: Lucía Fernández" required></div>
+            <div class="fg"><label class="fl" for="whatsapp">WhatsApp de Contacto</label><input class="fi" type="tel" id="whatsapp" placeholder="Ej: 3512345678" maxlength="10" inputmode="numeric" required></div>
+            <div class="fg">
+              <label class="fl">Plan de tu interés</label>
+              <div class="rg">
+                <label class="ro"><input type="radio" name="plan" value="oro" required><span>Plan Oro HD 2×1 — Premium (Disney+, Prime, Universal+, HBO Max)</span></label>
+                <label class="ro"><input type="radio" name="plan" value="lite"><span>Plan Super Lite — Esencial (DGO + Prime Video)</span></label>
+              </div>
+            </div>
+            <button type="button" class="btn-sub" id="btn1">Continuar →</button>
+          </div>
+          <div id="step2" style="display:none;">
+            <div class="fg">
+              <label class="fl" for="provincia">¿En qué provincia estás?</label>
+              <select class="fs" id="provincia" required>
+                <option value="" disabled selected>Seleccioná tu provincia</option>
+                <option>Buenos Aires</option><option>Ciudad Autónoma de Buenos Aires</option>
+                <option>Catamarca</option><option>Chaco</option><option>Chubut</option>
+                <option>Córdoba</option><option>Corrientes</option><option>Entre Ríos</option>
+                <option>Formosa</option><option>Jujuy</option><option>La Pampa</option>
+                <option>La Rioja</option><option>Mendoza</option><option>Misiones</option>
+                <option>Neuquén</option><option>Río Negro</option><option>Salta</option>
+                <option>San Juan</option><option>San Luis</option><option>Santa Cruz</option>
+                <option>Santa Fe</option><option>Santiago del Estero</option>
+                <option>Tierra del Fuego</option><option>Tucumán</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label class="fl">¿Contás con Tarjeta de Crédito?</label>
+              <div class="rg">
+                <label class="ro"><input type="radio" name="tc" value="propia" required><span>Sí, tengo tarjeta de crédito propia</span></label>
+                <label class="ro"><input type="radio" name="tc" value="familiar"><span>Sí, la puedo conseguir a través de un familiar</span></label>
+                <label class="ro"><input type="radio" name="tc" value="no"><span>No cuento con tarjeta de crédito</span></label>
+              </div>
+              <div class="lq-cold" id="lqm">Sin tarjeta de crédito la promoción del 70% OFF no aplica. De todas formas podemos asesorarte sobre opciones disponibles.</div>
+            </div>
+            <button type="button" class="btn-sub" id="bbk" style="background:transparent;border:1px solid var(--border);color:var(--silver);box-shadow:none;margin-top:0;margin-bottom:9px;font-size:13px;">← Volver</button>
+            <button type="submit" class="btn-sub">Enviar solicitud de cobertura →</button>
+          </div>
+        </form>
+        <div class="tbadges">
+          <div class="tbadge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>SSL Segura</div>
+          <div class="tbadge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Distribuidor Oficial</div>
+          <div class="tbadge"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Sin compromiso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ FAQs ══════════════ -->
+<section id="faqs">
+  <div class="faqs-in">
+    <p class="sec-label fia">Preguntas frecuentes</p>
+    <h2 class="sec-title fia">Todo lo que necesitás saber<br>antes de activar.</h2>
+    <div class="fq-list fia">
+      <div class="fq"><button class="fqt">¿Los 2 meses gratis son reales? ¿Hay letra chica?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>Sí, son reales. Los meses 1 y 2 están bonificados al 100% en la factura de DirecTV. La primera factura que recibís es la de Junio, ya con el valor acordado y congelado por 5 meses. No hay costos ocultos ni cargos de activación.</p></div></div>
+      <div class="fq"><button class="fqt">¿Por qué necesito Tarjeta de Crédito?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>La promoción del 70% OFF está habilitada por DirecTV exclusivamente para clientes que adhieren el plan a débito automático con Tarjeta de Crédito. Es la condición que habilita el beneficio completo — instalación gratis, meses bonificados y precio congelado.</p></div></div>
+      <div class="fq"><button class="fqt">¿Puedo usar la tarjeta de un familiar?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>Sí. Muchos clientes acceden a la promoción a través de la tarjeta de un familiar. En ese caso, el titular también recibe acceso gratuito a DGO en sus dispositivos como beneficio adicional.</p></div></div>
+      <div class="fq"><button class="fqt">¿Por qué no aparece el precio exacto?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>El valor de DirecTV varía según la provincia (Tierra del Fuego tiene tarifa diferencial) y el banco emisor de tu tarjeta, ya que algunos bancos aplican descuentos adicionales. Por eso confirmamos el precio exacto al contactarte, garantizando siempre el mejor valor disponible para tu caso.</p></div></div>
+      <div class="fq"><button class="fqt">¿La gestión es segura? ¿Es oficial?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>Absolutamente. Somos un Centro de Atención Digital autorizado por DirecTV Argentina. El alta se procesa directamente en el sistema central de la compañía. Recibirás un email oficial de DirecTV con tu número de cliente y confirmación del plan.</p></div></div>
+      <div class="fq"><button class="fqt">¿Hay permanencia mínima obligatoria?<span class="fqi"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button><div class="fqa"><p>No. Podés solicitar la baja cuando lo desées sin penalidades. La única condición para mantener el 70% de descuento es conservar la adhesión al débito automático con tarjeta durante los 5 meses de precio congelado.</p></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="foot-bg">DirecTV</div>
+  <div class="foot-in">
+    <div class="foot-brand">
+      <div class="foot-logo-row"><svg width="28" height="28" viewBox="0 0 34 34"><circle cx="17" cy="17" r="17" fill="#0077C8"/><text x="50%" y="62%" text-anchor="middle" font-family="Arial" font-weight="900" font-size="13" fill="white">D+</text></svg>DirecTV</div>
+      <strong>Atención Oficial Connection Center</strong><br>
+      Distribuidores Autorizados de DirecTV Argentina · Operación Centralizada.
+      <div class="foot-links">
+        <a href="#">Defensa del Consumidor</a>
+        <a href="#">Términos y Condiciones</a>
+        <a href="#">Política de Privacidad</a>
+      </div>
+    </div>
+    <div class="foot-social">
+      <a class="soc" href="#" aria-label="Instagram">Ig</a>
+      <a class="soc" href="#" aria-label="Facebook">Fb</a>
+      <a class="soc" href="#" aria-label="WhatsApp">Wa</a>
+    </div>
+  </div>
+  <div class="foot-div"></div>
+  <div class="foot-leg">
+    <p class="foot-copy">© 2026 Connection Center — Agente Comercial Autorizado DirecTV Argentina. Todos los derechos reservados.</p>
+    <p class="foot-disc">* Promoción válida para nuevas altas con adhesión a débito automático con TC. Los meses 1 y 2 bonificados al 100% aplican bajo condiciones vigentes. Precio congelado por 5 meses desde la activación. Valor final sujeto a provincia y banco emisor.</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="#formulario" class="btn-plan" style="display:block;text-align:center;text-decoration:none;cursor:auto;margin:0;font-size:13px;padding:13px;">
+    Quiero mis 2 meses gratis →
+  </a>
+</div>
+
 
 <script>
+/* ── Cursor ── */
 const cur=document.getElementById('cur');
 document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';});
+document.querySelectorAll('a,button,.ro,.pcard,.ben-block,.fq').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
+});
 
-document.getElementById('sf').addEventListener('submit', async function(e){
+/* ── TV Slideshow ── */
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.tv-dot');
+let cur_slide=0;
+function goSlide(n){
+  slides[cur_slide].classList.remove('active');
+  dots[cur_slide].classList.remove('on');
+  cur_slide=(n+slides.length)%slides.length;
+  slides[cur_slide].classList.add('active');
+  dots[cur_slide].classList.add('on');
+}
+dots.forEach((d,i)=>d.addEventListener('click',()=>goSlide(i)));
+setInterval(()=>goSlide(cur_slide+1),4500);
+
+/* ── Fade-in observer ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.fia').forEach(el=>obs.observe(el));
+
+/* ── FAQs ── */
+document.querySelectorAll('.fqt').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.fq'),was=item.classList.contains('open');
+    document.querySelectorAll('.fq.open').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+
+/* ── Multi-step form ── */
+const s1=document.getElementById('step1'),s2=document.getElementById('step2');
+const si1=document.getElementById('si1'),si2=document.getElementById('si2'),si3=document.getElementById('si3');
+document.querySelectorAll('input[name="tc"]').forEach(r=>r.addEventListener('change',function(){
+  document.getElementById('lqm').style.display=this.value==='no'?'block':'none';
+}));
+document.getElementById('btn1').addEventListener('click',()=>{
+  const n=document.getElementById('nombre').value.trim();
+  const w=document.getElementById('whatsapp').value.trim();
+  const p=document.querySelector('input[name="plan"]:checked');
+  if(!n){flash('nombre');return;}
+  if(w.length<10){flash('whatsapp');return;}
+  if(!p)return;
+  s1.style.display='none';s2.style.display='block';
+  si1.classList.remove('active');si1.classList.add('done');si2.classList.add('active');
+  document.getElementById('ft').textContent='Última info para verificar tu cobertura';
+  document.getElementById('fs').textContent='Necesitamos saber tu provincia para confirmar precio y disponibilidad.';
+  document.getElementById('formulario').scrollIntoView({behavior:'smooth',block:'center'});
+});
+document.getElementById('bbk').addEventListener('click',()=>{
+  s2.style.display='none';s1.style.display='block';
+  si2.classList.remove('active');si1.classList.remove('done');si1.classList.add('active');
+  document.getElementById('ft').textContent='Reservá tu cupo — Instalación Prioritaria Mundial 2026';
+  document.getElementById('fs').textContent='Completá tus datos y un asesor te contacta con el valor exacto para tu zona y banco. Sin compromiso.';
+});
+document.getElementById('whatsapp').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,10);});
+document.getElementById('sf').addEventListener('submit',async function(e){
   e.preventDefault();
-  const btn = document.getElementById('sbtn');
-  btn.textContent = 'Procesando...';
-  
-  const payload = {
-    nombre: document.getElementById('nombre').value,
-    whatsapp: document.getElementById('whatsapp').value,
-    provincia: document.getElementById('provincia').value,
-    tc: document.querySelector('input[name="tc"]:checked').value,
-    plan: "Indistinto",
-    timestamp: new Date().toLocaleString()
+  const prov=document.getElementById('provincia').value;
+  const tc=document.querySelector('input[name="tc"]:checked');
+  if(!prov){flashSel('provincia');return;}
+  if(!tc)return;
+  const btn=this.querySelector('button[type=submit]');
+  btn.textContent='Enviando...';btn.disabled=true;
+  const payload={
+    nombre:document.getElementById('nombre').value.trim(),
+    whatsapp:document.getElementById('whatsapp').value.trim(),
+    plan:document.querySelector('input[name="plan"]:checked')?.value,
+    provincia:prov,tc:tc.value,
+    calidad:tc.value==='no'?'frio':tc.value==='familiar'?'medio':'caliente',
+    timestamp:new Date().toISOString(),source:'Landing DirecTV v4 — Connection Center'
   };
-
-  const URL = 'https://script.google.com/macros/s/AKfycbxPKcixYCPRb2HuKATYjvM2b7x43-AQLRw8XMMqBkrgKeVY4Jg5x8cY0Kj8Vd7DhlRMKg/exec';
-
-  try {
-    await fetch(URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: JSON.stringify(payload)
-    });
-    document.getElementById('sf').style.display = 'none';
-    document.getElementById('succ').style.display = 'block';
-  } catch (err) {
-    alert('Error al enviar. Por favor intentalo de nuevo.');
-    btn.textContent = 'ENVIAR SOLICITUD';
+  const SHEET_URL='TU_GOOGLE_APPS_SCRIPT_URL_AQUI';
+  try{
+    if(SHEET_URL!=='TU_GOOGLE_APPS_SCRIPT_URL_AQUI'){
+      await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    }
+    si2.classList.remove('active');si2.classList.add('done');si3.classList.add('active');
+    document.getElementById('fc').style.display='none';
+    document.getElementById('succ').style.display='block';
+  }catch(err){
+    btn.textContent='Enviar solicitud de cobertura →';btn.disabled=false;
+    alert('Hubo un problema. Por favor, intentá de nuevo.');
   }
 });
+function flash(id){
+  const el=document.getElementById(id);if(!el)return;
+  el.style.borderColor='#cc0033';el.style.boxShadow='0 0 0 3px rgba(200,0,50,.15)';el.focus();
+  setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},2200);
+}
+function flashSel(id){
+  const el=document.getElementById(id);if(!el)return;
+  el.style.borderColor='#cc0033';el.style.boxShadow='0 0 0 3px rgba(200,0,50,.15)';
+  setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},2200);
+}
 </script>
-
 </body>
 </html>
