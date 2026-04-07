@@ -1027,9 +1027,9 @@ document.getElementById('sf').addEventListener('submit',async function(e){
     calidad:tc.value==='no'?'frio':tc.value==='familiar'?'medio':'caliente',
     timestamp:new Date().toISOString(),source:'Landing DirecTV v4 — Connection Center'
   };
-  const SHEET_URL='https://script.google.com/macros/s/AKfycbxPKcixYCPRb2HuKATYjvM2b7x43-AQLRw8XMMqBkrgKeVY4Jg5x8cY0Kj8Vd7DhlRMKg/exec';
+  const SHEET_URL='https://script.google.com/macros/s/AKfycbxS8jDZvsXVpKWm05TPxPXCgKyYJu2C586gKxgFSUPIecvgD374UtnCs99hvFji9j8GNg/exec';
   try{
-    if(SHEET_URL!=='TU_GOOGLE_APPS_SCRIPT_URL_AQUI'){
+    if(SHEET_URL!=='https://script.google.com/macros/s/AKfycbxS8jDZvsXVpKWm05TPxPXCgKyYJu2C586gKxgFSUPIecvgD374UtnCs99hvFji9j8GNg/exec'){
       await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     }
     si2.classList.remove('active');si2.classList.add('done');si3.classList.add('active');
